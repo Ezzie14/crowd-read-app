@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: #F2E9D8;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(15, 61, 46, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(201, 154, 46, 0.04) 0%, transparent 45%);
+}
+
+/* Split-flap tile — the signature tote-board interaction */
+.flap-tile {
+  perspective: 400px;
+}
+
+.flap-tile__face {
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.flap-tile--flipped .flap-tile__face {
+  transform: rotateX(180deg);
+}
+
+/* Visible keyboard focus, always */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #C99A2E;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flap-tile__face {
+    transition: none;
+  }
+}
